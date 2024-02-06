@@ -7,7 +7,7 @@ using UnityEngine;
 public class NPCMovement : MonoBehaviour
 {
 
-    
+
     [Header("Intentional Movement")]
     public float speed = 15f;
     public float acceleration = 4f;
@@ -28,7 +28,7 @@ public class NPCMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         GetAvoidTransforms();
 
@@ -36,21 +36,25 @@ public class NPCMovement : MonoBehaviour
         MoveAwayFromOthers();
     }
 
-    void MoveTowardsDesiredPosition(){
+    void MoveTowardsDesiredPosition()
+    {
         Vector2 desiredVelocity = (desiredPosition - transform.position).normalized * speed;
         rb.velocity = Vector2.Lerp(rb.velocity, desiredVelocity, acceleration * Time.deltaTime);
     }
 
-    void MoveAwayFromOthers () {
-        foreach(Transform avoidTransform in avoidTransforms){
+    void MoveAwayFromOthers()
+    {
+        foreach (Transform avoidTransform in avoidTransforms)
+        {
             Vector2 avoidDirection = (transform.position - avoidTransform.position).normalized;
-            float avoidPower = 1/Mathf.Pow(Vector2.Distance(transform.position, avoidTransform.position),2) * avoidStrength;
+            float avoidPower = 1 / Mathf.Pow(Vector2.Distance(transform.position, avoidTransform.position), 2) * avoidStrength;
 
             rb.position += avoidDirection * avoidPower * Time.deltaTime;
         }
     }
 
-    void GetAvoidTransforms(){
+    void GetAvoidTransforms()
+    {
         List<Transform> avoidTransformList = transfromListManager.GetChunk(transform.position);
         avoidTransformList.Remove(transform);
 
