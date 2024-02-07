@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1279858479789524126}
   - component: {fileID: 5495443651415392282}
   - component: {fileID: 5591362153274630947}
+  - component: {fileID: 1558406552908946529}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -140,4 +141,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 207eb8b5c25149066b074e9987c7a0b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  punchObject: {fileID: 1442623706679271789}
+  spellTableItems:
+  - name: Punch
+    spellBehaviour: {fileID: 1558406552908946529}
+    spellCombination: 0200000002000000
+  spellCombinationNumber: 2
+  availableSpells: 020000000000000005000000
+  selectedSpell: 
+--- !u!114 &1558406552908946529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442623706679271789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a56e2c92d96473846942b072d5487dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  power: 0
+  range: 3
+  cooldown: 0
+  cost: 0
+  punchObject: {fileID: 4783021395466591980, guid: f843a0485b0d1d9d6b35d0f6d0f959ef, type: 3}
