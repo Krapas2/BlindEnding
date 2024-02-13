@@ -29,6 +29,12 @@ public class PlayerSpellManager : MonoBehaviour
             this.spellBehaviour = spellBehaviour;
         }
     }
+
+    public float maxMana = 100;
+    [HideInInspector]
+    public float currentMana;
+    public float manaRegenAcceleration = 30;
+    private float manaRegenSpeed;
     public SpellTableItem[] spellTableItems;
     public int spellCombinationAmount = 2;
     public Spell[] availableSpells = new Spell[3];
@@ -41,6 +47,8 @@ public class PlayerSpellManager : MonoBehaviour
     void Start()
     {
         mainCamData = Camera.main.gameObject.GetComponent<CameraData>();
+        currentMana = maxMana;
+        manaRegenSpeed = 0;
 
         AssignSpellTable();
         AssignStartingSelectedSpell();
@@ -50,6 +58,7 @@ public class PlayerSpellManager : MonoBehaviour
     {
         Vector2 mouseDirection = (mainCamData.mouseWorldPosition - (Vector2)transform.position).normalized;
 
+        RegenMana();
         SelectSpell();
 
         if (Input.GetButton("Fire1"))
@@ -72,6 +81,14 @@ public class PlayerSpellManager : MonoBehaviour
         {
             selectedSpell.Add(availableSpells[0]);
         }
+    }
+
+    void RegenMana()
+    {
+
+        float regenAmount = manaRegenSpeed * Time.deltaTime;
+        currentMana = currentMana + regenAmount > maxMana ? maxMana : currentMana + regenAmount;
+        manaRegenSpeed += manaRegenAcceleration * Time.deltaTime;
     }
 
     void SelectSpell()
@@ -101,5 +118,16 @@ public class PlayerSpellManager : MonoBehaviour
     {
         selectedSpell.RemoveAt(0);
         selectedSpell.Add(newSpell);
+    }
+
+    public bool CanAffordMana(float cost)
+    {
+        return cost <= currentMana;
+    }
+
+    public void SpendMana(float cost) //todo: throws error if cost is higher than currentMana;
+    {
+        manaRegenSpeed = -cost;
+        currentMana -= cost;
     }
 }
