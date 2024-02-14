@@ -131,6 +131,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 780535664487931052, guid: 4555f9196b6ae64b1988acba64171a86, type: 3}
+      propertyPath: cost
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 780535664487931052, guid: 4555f9196b6ae64b1988acba64171a86, type: 3}
+      propertyPath: cooldown
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6960458362423928422, guid: 4555f9196b6ae64b1988acba64171a86, type: 3}
       propertyPath: m_Name
       value: Player
@@ -174,6 +182,10 @@ PrefabInstance:
     - target: {fileID: 7395484411085638070, guid: 4555f9196b6ae64b1988acba64171a86, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8063160671245981023, guid: 4555f9196b6ae64b1988acba64171a86, type: 3}
+      propertyPath: manaRegenAcceleration
+      value: 150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

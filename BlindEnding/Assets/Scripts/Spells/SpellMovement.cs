@@ -12,6 +12,6 @@ public class SpellMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        rb.velocity = transform.up * speed;
+        rb.velocity += (Vector2)transform.up * speed;
     }
 }

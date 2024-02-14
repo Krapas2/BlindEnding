@@ -35,9 +35,9 @@ public class PlayerSpellManager : MonoBehaviour
     public float currentMana;
     public float manaRegenAcceleration = 30;
     private float manaRegenSpeed;
-    public SpellTableItem[] spellTableItems;
     public int spellCombinationAmount = 2;
     public Spell[] availableSpells = new Spell[3];
+    public SpellTableItem[] spellTableItems;
 
     private Dictionary<HashSet<Spell>, PlayerSpell> spellTable = new Dictionary<HashSet<Spell>, PlayerSpell>(HashSet<Spell>.CreateSetComparer());
     private List<Spell> selectedSpell = new List<Spell>();
@@ -60,11 +60,6 @@ public class PlayerSpellManager : MonoBehaviour
 
         RegenMana();
         SelectSpell();
-
-        if (Input.GetButton("Fire1"))
-        {
-            SelectedSpellBehaviour().Cast(mainCamData.mouseWorldPosition);
-        }
     }
 
     void AssignSpellTable()
@@ -116,8 +111,10 @@ public class PlayerSpellManager : MonoBehaviour
 
     void ChangeSelectedSpell(Spell newSpell)
     {
+        SelectedSpellBehaviour().enabled = false;
         selectedSpell.RemoveAt(0);
         selectedSpell.Add(newSpell);
+        SelectedSpellBehaviour().enabled = true;
     }
 
     public bool CanAffordMana(float cost)

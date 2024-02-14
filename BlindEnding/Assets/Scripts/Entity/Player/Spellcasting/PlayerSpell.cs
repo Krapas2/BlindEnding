@@ -14,13 +14,21 @@ public abstract class PlayerSpell : MonoBehaviour
     [HideInInspector]
     public PlayerSpellManager caster;
 
-    public abstract void Cast(Vector2 position);
+    private CameraData mainCamData;
 
     public virtual void Start()
     {
+        mainCamData = Camera.main.gameObject.GetComponent<CameraData>();
         caster = GetComponent<PlayerSpellManager>();
         castable = true;
     }
+
+    public virtual void Update()
+    {
+        Cast(mainCamData.mouseWorldPosition);
+    }
+
+    public abstract void Cast(Vector2 position);
 
     public IEnumerator Cooldown()
     {

@@ -16,6 +16,7 @@ public class PlayerSpellPunch : PlayerSpell
         base.Start();
         rb = GetComponent<Rigidbody2D>();
     }
+
     public override void Cast(Vector2 position)
     {
         if (Input.GetButtonDown("Fire1") && castable && caster.CanAffordMana(cost))
@@ -32,7 +33,10 @@ public class PlayerSpellPunch : PlayerSpell
     void CreatePunch(Vector3 direction)
     {
         Vector3 punchOffset = direction * range;
-        Instantiate(punchObject, transform.position + punchOffset, Quaternion.LookRotation(flip ? Vector3.forward : Vector3.back, direction));
+
+        GameObject punch = Instantiate(punchObject, transform.position + punchOffset, Quaternion.LookRotation(flip ? Vector3.forward : Vector3.back, direction));
+        punch.GetComponent<Rigidbody2D>().velocity += rb.velocity;
+
         flip = !flip;
     }
     void Recoil(Vector2 direction)
