@@ -6,8 +6,6 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class NPCMovement : MonoBehaviour
 {
-
-
     [Header("Intentional Movement")]
     public float speed = 15f;
     public float acceleration = 4f;

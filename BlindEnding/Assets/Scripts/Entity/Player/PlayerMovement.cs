@@ -19,13 +19,15 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical")).normalized;
-        
+        Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+
         Move(moveInput);
     }
 
-    void Move(Vector2 direction){
+    void Move(Vector2 direction)
+    {
         Vector2 desiredVelocity = direction * speed;
-        rb.velocity = Vector2.Lerp(rb.velocity, desiredVelocity, acceleration * Time.deltaTime);
+
+        rb.velocity = Vector2.Lerp(desiredVelocity, rb.velocity, Mathf.Pow(.5f, acceleration * Time.deltaTime));
     }
 }
