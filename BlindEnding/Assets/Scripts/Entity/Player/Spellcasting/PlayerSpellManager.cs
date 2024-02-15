@@ -56,7 +56,7 @@ public class PlayerSpellManager : MonoBehaviour
 
     void Update()
     {
-        Vector2 mouseDirection = (mainCamData.mouseWorldPosition - (Vector2)transform.position).normalized;
+        Vector2 mouseDirection = (mainCamData.worldMousePosition - (Vector2)transform.position).normalized;
 
         RegenMana();
         SelectSpell();

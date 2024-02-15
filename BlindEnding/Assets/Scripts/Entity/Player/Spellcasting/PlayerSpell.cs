@@ -25,7 +25,7 @@ public abstract class PlayerSpell : MonoBehaviour
 
     public virtual void Update()
     {
-        Cast(mainCamData.mouseWorldPosition);
+        Cast(mainCamData.worldMousePosition);
     }
 
     public abstract void Cast(Vector2 position);

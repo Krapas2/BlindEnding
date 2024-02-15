@@ -131,14 +131,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 780535664487931052, guid: 4555f9196b6ae64b1988acba64171a86, type: 3}
-      propertyPath: cost
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 780535664487931052, guid: 4555f9196b6ae64b1988acba64171a86, type: 3}
-      propertyPath: cooldown
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 6960458362423928422, guid: 4555f9196b6ae64b1988acba64171a86, type: 3}
       propertyPath: m_Name
       value: Player
@@ -182,10 +174,6 @@ PrefabInstance:
     - target: {fileID: 7395484411085638070, guid: 4555f9196b6ae64b1988acba64171a86, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8063160671245981023, guid: 4555f9196b6ae64b1988acba64171a86, type: 3}
-      propertyPath: manaRegenAcceleration
-      value: 150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -417,11 +405,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1115455328}
-  leadingDistance: 5
-  maxTargetSpeed: 50
+  leadingDistance: 0.5
   smoothMoveSpeed: 25
-  zoomPower: 1.5
-  smoothZoomSpeed: 1
+  zoomOutPower: 0.85
+  smoothZoomSpeed: 8
 --- !u!114 &1364705242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -434,7 +421,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 718c59e7f3c40a2dfa7eecbaa1c19e28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseWorldPosition: {x: 0, y: 0}
+  worldMousePosition: {x: 0, y: 0}
+  cameraHeight: 0
+  pixelCenterOfScreen: {x: 0, y: 0}
+  worldCenterOfScreen: {x: 0, y: 0}
 --- !u!1 &1595354112
 GameObject:
   m_ObjectHideFlags: 0
