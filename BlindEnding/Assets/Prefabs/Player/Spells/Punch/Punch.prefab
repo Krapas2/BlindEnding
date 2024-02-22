@@ -14,10 +14,10 @@ GameObject:
   - component: {fileID: 6596694962746280373}
   - component: {fileID: 6422115401996828209}
   - component: {fileID: 152581561908587734}
-  - component: {fileID: 2805320887258020918}
   - component: {fileID: 8170386995090613106}
   - component: {fileID: 8144265536186917606}
   - component: {fileID: 884222059789215970}
+  - component: {fileID: 1638371863089430115}
   m_Layer: 6
   m_Name: Punch
   m_TagString: Untagged
@@ -188,19 +188,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
---- !u!114 &2805320887258020918
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4783021395466591980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e18821c02ec3855aca1a9fed94c0685b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 1
 --- !u!114 &8170386995090613106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94e09a2ca57b2127d87ceeb812a61b61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  continuous: 1
+  continuous: 0
   force: 50
 --- !u!114 &884222059789215970
 MonoBehaviour:
@@ -244,3 +231,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   continuous: 0
   damage: 10
+--- !u!114 &1638371863089430115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4783021395466591980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625db67340da03189b3235cdc2162866, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 1
