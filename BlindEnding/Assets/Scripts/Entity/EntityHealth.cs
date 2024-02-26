@@ -26,6 +26,11 @@ public class EntityHealth : MonoBehaviour
         Die();
     }
 
+    public void ReceiveDamage(float damage)
+    {
+        currentHealth -= damage;
+    }
+
     void Die()
     {
         foreach (Component component in GetComponents<Component>())

@@ -2,16 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpellDamage : MonoBehaviour
+public class SpellEndAuto : SpellEnd
 {
-
     void Start()
     {
-
-    }
-
-    void Update()
-    {
-
+        Invoke("Die", time);
     }
 }

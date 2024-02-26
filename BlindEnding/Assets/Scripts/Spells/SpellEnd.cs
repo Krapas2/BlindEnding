@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpellEnd : MonoBehaviour
+public abstract class SpellEnd : MonoBehaviour
 {
     public float time;
 
-    void Start()
+    public void Trigger()
     {
         Invoke("Die", time);
     }
